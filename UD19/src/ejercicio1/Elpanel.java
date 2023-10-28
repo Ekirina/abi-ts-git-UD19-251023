@@ -4,20 +4,18 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.*;
-import java.awt.ActiveEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-public class elpanel extends JFrame {
+public class Elpanel extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private final JTextField textField = new JTextField();
 
-	public elpanel() {
+	public Elpanel() {
 		setTitle("Bienvenido/a");
 		setBounds(200, 200, 300, 200);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
