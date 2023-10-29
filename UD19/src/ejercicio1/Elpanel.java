@@ -23,16 +23,16 @@ public class Elpanel extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		
+
 		System.out.println(contentPane);
-		
+
 		textField.setColumns(10);
 		contentPane.add(textField);
 		textField.setBounds(95, 50, 86, 26);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		textField.setLayout(null);
-	
+
 		JButton btnNewButton = new JButton("¡Dale!");
 		btnNewButton.setBounds(92, 90, 89, 23);
 		contentPane.add(btnNewButton);
@@ -45,8 +45,8 @@ public class Elpanel extends JFrame {
 			}		
 		};
 		btnNewButton.addActionListener(al);		
-		}
-	}	
-	
-	
+	}
+}	
+
+
 
