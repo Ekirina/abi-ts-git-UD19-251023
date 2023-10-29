@@ -262,6 +262,7 @@ public class Calculadora extends JFrame {
 		repaint();
 	}
 
+	//Evento para la operación
 	ActionListener equal=new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -271,8 +272,9 @@ public class Calculadora extends JFrame {
 	ActionListener numListener=new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			JButton numero = (JButton) e.getSource();
-			textField.setText(textField.getText()+numero.getText());
+			JButton numero = (JButton) e.getSource(); 			//Coge el botón que es
+			textField.setText(textField.getText()+numero.getText()); 
+			//El texto para poner en la caja es el texto cogido + el numero que recoge del texto.
 		}
 	};
 	ActionListener operator=new ActionListener() {
@@ -280,12 +282,12 @@ public class Calculadora extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			JButton btn_signo = (JButton) e.getSource();
 			if (num1 == null) {
-				num1 = textField.getText();
+				num1 = textField.getText(); //Para que el num1 coja el valor que le añade el text
 			}else {
 				makeOperation();
 			}
-			textField.setText("");
-			signo = btn_signo.getText();
+			textField.setText(""); //Limpiar pantalla
+			signo = btn_signo.getText(); //Coge el signo de operación
 		}		
 	};
 	ActionListener borrar=new ActionListener() {
@@ -302,27 +304,27 @@ public class Calculadora extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			num1 = null;
-			textField.setText("");
-			lblNewLabel.setText("");
+			textField.setText(""); //Vacía la caja de texto
+			lblNewLabel.setText(""); //Vacía el label donde sale el resultado
 		}		
 	};
 	ActionListener coma=new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			textField.setText(textField.getText()+".");
+			textField.setText(textField.getText()+"."); //Añade la coma después de coger el número
 		}		
 	};
 	ActionListener cambio=new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (textField.getText().isEmpty()) {
+			if (textField.getText().isEmpty()) { //Si la caja de texto está vacía, se añade el negativo
 				textField.setText("-");			
 			}else {
-				if (textField.getText().charAt(0) == '-') {
-					String positivo = textField.getText().substring(1, textField.getText().length());
-					textField.setText(positivo);
+				if (textField.getText().charAt(0) == '-') { //Si el primer carácter del string es el negativo
+					String positivo = textField.getText().substring(1, textField.getText().length()); //Se cuenta a partir de la posición 1
+					textField.setText(positivo); //Y ese contaje anterior se le añade a la caja de texto(es decir, sin el -)
 				} else {
-					textField.setText("-"+textField.getText());
+					textField.setText("-"+textField.getText()); //Si no, se añade el negativo y luego el texto que recoge
 				}
 			}
 		}	
