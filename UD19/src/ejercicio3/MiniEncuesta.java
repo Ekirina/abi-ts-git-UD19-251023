@@ -23,6 +23,11 @@ public class MiniEncuesta extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JCheckBox chckbxProgram;
+	private JCheckBox chckbxDesign;
+	private JCheckBox chckbxAdmin;
+	private ButtonGroup bgroupsystem;
+	private JSlider slider;
 
 	public MiniEncuesta() {
 		setTitle("Mini encuesta");
@@ -33,11 +38,12 @@ public class MiniEncuesta extends JFrame {
 		contentPane.setForeground(new Color(0, 0, 255));
 		contentPane.setBackground(new Color(230, 230, 250));
 		contentPane.setLayout(null);
+		
 		setContentPane(contentPane);
 		
 		System.out.println(contentPane);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Windows");
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Windows", true);
 		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnNewRadioButton.setBounds(61, 85, 111, 23);
 		contentPane.add(rdbtnNewRadioButton);
@@ -55,27 +61,26 @@ public class MiniEncuesta extends JFrame {
 		contentPane.add(rdbtnNewRadioButton_2);
 		rdbtnNewRadioButton_2.setActionCommand("Mac");
 		
-		ButtonGroup bgroupsystem = new ButtonGroup();
+		bgroupsystem = new ButtonGroup();
 		bgroupsystem.add(rdbtnNewRadioButton);
 		bgroupsystem.add(rdbtnNewRadioButton_1);
 		bgroupsystem.add(rdbtnNewRadioButton_2);
 	
-		JCheckBox chckbxProgram = new JCheckBox("Programación", false);
+		chckbxProgram = new JCheckBox("Programación", false);
 		chckbxProgram.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		chckbxProgram.setBounds(255, 85, 122, 23);
 		contentPane.add(chckbxProgram);
 		
-		JCheckBox chckbxDesign = new JCheckBox("Diseño gráfico", false);
+		chckbxDesign = new JCheckBox("Diseño gráfico", false);
 		chckbxDesign.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		chckbxDesign.setBounds(255, 122, 122, 23);
 		contentPane.add(chckbxDesign);
 		
-		JCheckBox chckbxAdmin = new JCheckBox("Administración", false);
+		chckbxAdmin = new JCheckBox("Administración", false);
 		chckbxAdmin.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		chckbxAdmin.setBounds(255, 163, 122, 23);
 		contentPane.add(chckbxAdmin);
 				
-		
 		JLabel lblNewLabel = new JLabel("Sistema operativo:");
 		lblNewLabel.setForeground(new Color(0, 0, 205));
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -102,7 +107,7 @@ public class MiniEncuesta extends JFrame {
 		btnNewButton.setBounds(341, 242, 69, 34);
 		contentPane.add(btnNewButton);
 		
-		JSlider slider = new JSlider();
+		slider = new JSlider();
 		slider.setValue(5);
 		slider.setMaximum(10);
 		slider.setMajorTickSpacing(DISPOSE_ON_CLOSE);
@@ -111,6 +116,8 @@ public class MiniEncuesta extends JFrame {
 		slider.setBounds(121, 231, 210, 59);
 		contentPane.add(slider);
 		
+		btnNewButton.addActionListener(al);
+		}
 		ActionListener al=new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -123,8 +130,6 @@ public class MiniEncuesta extends JFrame {
 				JOptionPane.showMessageDialog(null, "Programación: " + program + ". Diseño gráfico: "+ design + ". Administración: " 
 				+ admin + ". Sistema operativo: " + system + ". Horas en el ordenador: " + horas);
 			}
-		};
-	
-			btnNewButton.addActionListener(al);	}
+		};	
 }
 
