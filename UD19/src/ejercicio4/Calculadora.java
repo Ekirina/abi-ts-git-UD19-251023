@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -346,14 +347,18 @@ public class Calculadora extends JFrame {
 				resultado = Double.parseDouble(num1) * num2;
 				break;
 			case "/":
-				resultado = Double.parseDouble(num1) / num2;
-				break;
-			default:
-				break;
+					if (num2 == 0){
+						JOptionPane.showMessageDialog(lblNewLabel, "No se puede dividir por cero");
+					}else {
+						resultado = Double.parseDouble(num1) / num2;
+				}
+					break;
+				default:
+					break;
+				}
+				num1 = resultado + "";
+				lblNewLabel.setText(resultado + "");
+				textField.setText("");
 			}
-			num1 = resultado + "";
-			lblNewLabel.setText(resultado + "");
-			textField.setText("");
 		}
-	}
-}	
+	}	
